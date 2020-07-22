@@ -36,10 +36,6 @@ RUN apt-get update \
     # Create a non-root user to use if preferred - see https://aka.ms/vscode-remote/containers/non-root-user.
     && groupadd --gid $USER_GID $USERNAME \
     && useradd -s /bin/bash --uid $USER_UID --gid $USER_GID -m $USERNAME \
-    # [Optional] Uncomment the next three lines to add sudo support
-    # && apt-get install -y sudo \
-    # && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
-    # && chmod 0440 /etc/sudoers.d/$USERNAME \
     #
     # Clean up
     && apt-get autoremove -y \
@@ -53,4 +49,3 @@ ENV DEBIAN_FRONTEND=
 RUN export LC_CTYPE=en_US.UTF-8 \
     && export LC_ALL=en_US.UTF-8 \
     && export LANGUAGE=en_US.UTF-8
-
